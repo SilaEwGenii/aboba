@@ -14,3 +14,12 @@
  *= require_self
  */
  @import "bootstrap";
+
+ .start{ 
+    background: linear-gradient(to right, red, orange, yellow, green, cyan, blue, violet);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 240px;
+    line-height: 240px;
+    text-align: center;
+ }

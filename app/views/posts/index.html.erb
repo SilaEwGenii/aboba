@@ -1,0 +1,24 @@
+<h1>Posts</h1>
+ 
+<%= link_to 'New Post', new_post_path, class: "link-primary" %> 
+
+<table class="table table-success table-striped">
+  <tr>
+    <th class="col">User</th>
+    <th class="col">Title</th>
+    <th class="col">Text</th>
+    <th colspan="3"></th>
+  </tr>
+ 
+  <% @post.each do |post| %>
+    <tr>
+      <td><%= post.user.name %></td>
+      <td><%= post.title %></td>
+      <td><%= post.text %></td>
+      <td><%= link_to 'Show', post_path(post) %></td>
+      <td><%= link_to 'Edit', edit_post_path(post) %></td>
+      <td><%= link_to 'Destroy', post_path(post),
+              data: {turbo_method: :delete, turbo_confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>

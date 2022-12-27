@@ -1,12 +1,11 @@
-<h1>Listing Users</h1>
+<h1>Users</h1>
  
- <%= link_to 'New user', new_user_path%>
- <%# <%= link_to 'All articles', articles_path %> 
-<table>
+ <%= link_to 'New user', new_user_path, class: "link-primary"%> 
+<table class="table table-success table-striped">
   <tr>
-    <th>Name</th>
-    <th>Email</th>
-    <th colspan="2" ></th>
+    <th class="col">Name</th>
+    <th class="col">Email</th>
+    <th colspan="3" ></th>
   </tr>
  
   <% @users.each do |user| %>
