@@ -11,20 +11,8 @@
   </head>
 
   <body>
-
-    <div class="container main">
-      <div class="row">
-        <div class= "col-md-12">
-          <% flash.each do |name, message| %>
-            <div class= "alert <%=bootstrap_class_for(name)%>">
-              <button class="close" data-dismiss= "alert">&times;</button>
-              <%= message %>
-            </div>
-          <% end %>
-      </div>
-    </div>
-
-
+    <p id="notice"><%= notice %></p>
+    <p id="alert"><%= alert %></p>
     <div class="container">
     <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
       <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
