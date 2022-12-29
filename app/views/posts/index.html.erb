@@ -1,6 +1,8 @@
 <h1>Posts</h1>
  
-<%= link_to 'New Post', new_post_path, class: "link-primary" %> 
+<% if user_signed_in? %>
+  <%= link_to 'New Post', new_post_path, class: "link-primary" %> 
+<% end %>
 
 <table class="table table-success table-striped">
   <tr>

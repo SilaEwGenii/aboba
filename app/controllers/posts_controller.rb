@@ -1,5 +1,8 @@
 class PostsController < ApplicationController
 
+    # before_action :authenticate_user!, exept: [:index, :show]
+
+
     def index
         @post = Post.all
     end
@@ -18,7 +21,7 @@ class PostsController < ApplicationController
 
     def update
         @post= Post.find(params[:id])                    #редактирование аккаунтов       
-        if @post.update(postss_params)            # если аккаунт редактируется переводит на страницу отредактированного акканта 
+        if @post.update(posts_params)            # если аккаунт редактируется переводит на страницу отредактированного акканта 
             redirect_to @post# если аккаунт редактируется переводит на страницу отредактированного акканта 
         else
             render 'edit'                                 #если нет по возвращает на страницу редактирования аккаунтов
@@ -27,7 +30,7 @@ class PostsController < ApplicationController
     end
 
     def create 
-        @post = Post.new(posts_params)         #создание post
+        @post = Post.new(posts_params.merge(user_id: current_user.id))         #создание post
         if @post.save                              # если аккаунт создаётся переводит на страницу нового акканта 
             redirect_to @post                   # если аккаунт создаётся переводит на страницу нового акканта 
         else                                      # если нет то возвращает на страницу создания аккаунтов
@@ -44,10 +47,8 @@ class PostsController < ApplicationController
     private 
 
     def posts_params
-        params.require(:post).permit(:title, :text, :current_user)
+        params.require(:post).permit(:title, :text, :user_id)
     end
-
-
 
 
 end
