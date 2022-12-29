@@ -1,7 +1,7 @@
 <%= form_with model: @post, local: true do |form| %>
     <p>
-        <%= form.label :user_id %><br>
-        <%= form.select :user_id, User.all.map { |us| [us.name, us.id]} %>
+        <%= "Автор:"%><br>
+        <%= current_user.name %>
     </p>
 
 
