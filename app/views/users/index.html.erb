@@ -3,14 +3,16 @@
 
 <table class="table table-success table-striped">
   <tr>
-    <th class="col">Name</th>
+    <th class="col">Имя</th>
     <th class="col">Email</th>
+    <th class="col">Постов</th>
   </tr>
  
-  <% @user.each do |account| %>
+  <% @user.each do |user| %>
     <tr>
-      <td><%= account.name %></td>
-      <td><%= account.email %></td>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%=user.posts.length %></td>
     </tr>
   <% end %>
 </table>
