@@ -1,23 +1,18 @@
 <%= form_with model: @post, local: true do |form| %>
-    <p>
-        <%= "Автор:"%><br>
-        <%= current_user.name %>
-        
-    </p>
-
 
     <p>
-        <%= form.label :title %><br>
+        <%= form.label :Заголовок %><br>
         <%= form.text_field :title %>
     </p>
  
     <p>
-        <%= form.label :text %><br>
+        <%= form.label :Сообщение %><br>
         <%= form.text_area :text %>
     </p>
  
     <p>
         <%= form.submit %>
     </p>
+    <%= link_to 'Назад', posts_path %>
  
 <% end %>
