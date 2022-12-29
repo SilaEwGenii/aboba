@@ -1,0 +1,16 @@
+<h1>Пользователи</h1>
+ 
+
+<table class="table table-success table-striped">
+  <tr>
+    <th class="col">Name</th>
+    <th class="col">Email</th>
+  </tr>
+ 
+  <% @user.each do |account| %>
+    <tr>
+      <td><%= account.name %></td>
+      <td><%= account.email %></td>
+    </tr>
+  <% end %>
+</table>
