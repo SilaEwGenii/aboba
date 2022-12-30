@@ -14,6 +14,14 @@
   <%= @post.text %>
 </p>
 
+<hr>
+ 
+<h2>Коментарии</h2>
+<%= render @post.comments %>
+ 
+<hr>
 
+<h2>Добавить коментарий:</h2>
+<%= render 'comments/form' %>
 
 <%= link_to 'Назад', posts_path %>
