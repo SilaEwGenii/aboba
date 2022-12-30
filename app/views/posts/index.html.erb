@@ -17,6 +17,7 @@
       <td><%= post.user.name %></td>
       <td><%= post.title %></td>
       <td><%= post.text %></td>
+      <td><%= link_to 'Коментировать', comment_path(post) %></td>
       <td><%= link_to 'Просмотреть', post_path(post) %></td>
       <%if current_user.id == post.user.id%>
         <td><%= link_to 'Редактировать', edit_post_path(post) %></td>

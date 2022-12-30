@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   root "start#index"
   resources :users
   resources :posts
+  resources :comments
+  
 end

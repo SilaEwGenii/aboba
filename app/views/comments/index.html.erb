@@ -1,0 +1,20 @@
+<h1>Comments</h1>
+ 
+
+<table>
+  <tr>
+    <th>тело</th>
+    <th>пост ид</th>
+    <th> бзер ид</th>
+  </tr>
+ 
+  <% @comment.each do |com| %>
+    <tr>
+      <td><%= com.body %></td>
+      <td><%= com.post_id %></td>
+      <td><%= com.user_id %></td>
+      
+      
+      
+  <% end %>
+</table>
