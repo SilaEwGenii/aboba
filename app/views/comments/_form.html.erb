@@ -2,10 +2,10 @@
 <%= form_with(model: [ @posts, @post.comments.build ], local: true) do |form| %>
   
   
-      <p>
-        <%= form.label :user_id %><br>
-        <%= form.select :user_id, User.all.map { |acc| [acc.name, acc.id]} %>
-    </p>
+      <%# <p> %>
+        <%# <%= form.label :user_id %><br> %>
+        <%# <%= form.select :user_id, User.all.map { |acc| [acc.name, acc.id]} %> %>
+    <%# </p> %>
   
 
   <p>
