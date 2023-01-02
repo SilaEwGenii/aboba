@@ -9,9 +9,12 @@
   <%= comment.body %>
 </p>
 
-
-<p>
-  <%= link_to 'Удалить коментарий', [comment.post, comment],
-                                method: :delete,
-                                data: { turbo_method: :delete,confirm: 'Ты точно этого хочешь?' } %>
-<p>
+<% if current_user.id == comment.user.id%>
+  <p>
+    <%= link_to 'Удалить коментарий', [comment.post, comment],
+                                  method: :delete,
+                                  data: { turbo_method: :delete,confirm: 'Ты точно этого хочешь?' } %>
+  <p>
+<%else%>
+  <tr>
+<%end%>
