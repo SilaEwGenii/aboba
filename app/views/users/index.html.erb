@@ -8,9 +8,9 @@
     <th class="col">Постов</th>
   </tr>
  
-  <% @user.each do |user| %>
+  <% @users.each do |user| %>
     <tr>
-        <td><%= user.name %></td>
+        <td><%=link_to "#{user.name}", user_path(user)%></td>
         <td><%= user.email %></td>
         <td><%=user.posts.length %></td>
     </tr>

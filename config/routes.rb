@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   resources :posts do
     resources :comments
   end
-  
+  get '/users/:id/subscribe' => 'users#subscribe', as: 'subscribe_user'
+  get '/users/:id/unsubscribe' => 'users#unsubscribe', as: 'unsubscribe_user'
 end
