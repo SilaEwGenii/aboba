@@ -10,9 +10,15 @@
 
 
 
-<%= link_to "Подписаться", subscribe_user_path(@user) %><br>
-<%= link_to "Отписаться", unsubscribe_user_path(@user) %>
-<br>
+
+<% if current_user.id == @user.id%>
+<% else %>
+  <% if current_user.subscribes.exists?(subscribable_id: @user.id)%>
+    <%= link_to "Отписаться", unsubscribe_user_path(@user) %>|
+  <% else %>
+    <%= link_to "Подписаться", subscribe_user_path(@user) %>|
+  <% end %>
+<% end %>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
