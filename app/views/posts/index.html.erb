@@ -1,34 +1,3 @@
 <h1>Посты</h1>
- 
-<% if user_signed_in? %>
-  <%= link_to 'Новый пост', new_post_path, class: "link-primary" %> 
-<% end %>
-
-<table class="table table-success table-striped">
-  <tr>
-    <th class="col">Пользователь</th>
-    <th class="col">Заголовок</th>
-    <th class="col">Сообщение</th>
-    <th class="col">Количество коментариев</th>
-    <th class="col">Теги</th>
-    <th colspan="2"></th>
-  </tr>
- 
-  <% @post.each do |post| %>
-    <tr>
-      <td><%= post.user.name %></td>
-      <td><%= post.title %></td>
-      <td><%= post.text %></td>
-      <td><%= post.comments.length %></td>
-      <td><%= raw post.tags.map(&:name).map {|t| link_to t, tag_path(t) }.join(' ') %></td>
-      <td><%= link_to 'Просмотреть', post_path(post) %></td>
-      <%if current_user.id == post.user.id%>
-        <td><%= link_to 'Редактировать', edit_post_path(post) %></td>
-        <td><%= link_to 'Удалить', post_path(post),    
-              data: {turbo_method: :delete, turbo_confirm: 'Ты точно этого хочешь?' } %></td>
-      <%else%>
-        <td colspan= "2"></td>
-      <% end %>
-    </tr>
-  <% end %>
-</table>
+  <%= link_to "Новый пост", new_post_path, class: "btn btn-outline-primary "%>
+<%= render @posts%>

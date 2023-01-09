@@ -1,27 +1,21 @@
+<article class = "post">
+  <section class = "post-head">
+    <h1> <%=@post.title %></h1>
+    <h6> <%=link_to @post.user.name , user_path(@post) %></h6>
+    <div>Коментариев:<%= @post.comments.length %></div>>
+    <small>
+      <time> <%= @post.created_at.to_date.strftime("%d, %B, %Y") %></time> |
+      <%if current_user.id == @post.user.id%>
+        <%= link_to 'Изменить', edit_post_path(@post) %> |
+        <%= link_to 'Удалить', post_path(@post), data: {turbo_method: :delete, turbo_confirm: 'Ты точно этого хочешь?' } %>
+      <% end %>
+    </small>
+  </section>
 
-<p>
-    <strong>Пользователь:</strong>
-    <%= @post.user.name%>
-<p>
+  <section class = "post-summary">
+    <%= @post.text %>
+  </section>
 
-<p>
-  <strong>Название:</strong>
-   <%= @post.title %> 
-</p>
- 
-<p>
-  <strong>Сообщение:</strong>
-  <%= @post.text %>
-</p>
+</article>
 
-<hr>
- 
-<h2>Коментарии</h2>
-<%= render @post.comments %>
- 
-<hr>
 
-<h2>Добавить коментарий:</h2>
-<%= render 'comments/form' %>
-
-<%= link_to 'Назад', posts_path %>
