@@ -1,20 +1,13 @@
 
-<p>
-  <strong>Коментатор:</strong>
-  <%= comment.user.name %>
-</p>
- 
-<p>
-  <strong>Коментарий:</strong>
-  <%= comment.body %>
-</p>
-
-<% if current_user.id == comment.user.id%>
-  <p>
-    <%= link_to 'Удалить коментарий', [comment.post, comment],
-                                  method: :delete,
-                                  data: { turbo_method: :delete,confirm: 'Ты точно этого хочешь?' } %>
-  <p>
-<%else%>
-  <hr>
-<%end%>
+<div class = "post">
+  <div class = "post-head">
+    <h6 class = "text-md-start" >Коментатор: <%= comment.user.name %>
+      <% if current_user.id == comment.user.id%>
+        <%= link_to 'Удалить коментарий', [comment.post, comment], class: "btn btn-primary btn-sm",
+                                          method: :delete,
+                                          data: { turbo_method: :delete,confirm: 'Ты точно этого хочешь?' } %>
+      <%end%>
+    </h6>
+    <small class ="post-text p-4"><%= comment.body %></small>
+  </div>
+</div>

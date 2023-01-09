@@ -12,10 +12,13 @@
     </small>
   </section>
 
-  <section class = "post-summary">
+  <section class = "post-text">
     <%= post.text %>
   </section>
 
+  <section class = "post-footer">
+    <%= raw post.tags.map(&:name).map{|t| link_to t, tag_path(t), class: "badge bg-primary text-wrap" }.join(' ') %>
+  </section>
 </article>
 
 

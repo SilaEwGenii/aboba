@@ -12,10 +12,27 @@
     </small>
   </section>
 
-  <section class = "post-summary">
+  <section class = "post-text">
     <%= @post.text %>
   </section>
-
 </article>
+
+
+
+
+
+
+
+
+
+<%= render @post.comments %>
+ 
+<hr>
+
+
+<%= render 'comments/form' %>
+
+<%= link_to 'Назад', posts_path %>
+
 
 

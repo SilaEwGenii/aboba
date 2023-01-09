@@ -1,12 +1,15 @@
 
 <%= form_with(model: [ @post, @post.comments.build ], local: true) do |form| %>
   
-  <p>
+  <div class="form-group">
     <%= form.label :Текст_коментария %><br>
-    <%= form.text_area :body %>
-  </p>
+    <%= form.text_area :body, class: 'form-control' %>
+  </div>
   <p>
-    <%= form.submit "Написать" %>
+    <%= form.submit "Написать", class: "btn btn-primary" %>
   </p>
 
 <% end %>
+
+
+
