@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   end
   get '/users/:id/subscribe' => 'users#subscribe', as: 'subscribe_user'
   get '/users/:id/unsubscribe' => 'users#unsubscribe', as: 'unsubscribe_user'
+  resources :tags, only:[:show]
 end

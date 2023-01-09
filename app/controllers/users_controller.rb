@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
     before_action :set_user, only: [:show, :subscribe, :unsubscribe]
+    before_action :authenticate_user!, exept: [:index, :show]
     
     def index
         @users = User.all
